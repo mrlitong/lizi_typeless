@@ -1,0 +1,2 @@
+{"id":"001","audio":"audio/001.wav","reference":"请把 Docker 服务部署到 Azure。","mandarin":true,"technicalTerms":["Docker","Azure"],"expectedOrganized":"请把 Docker 服务部署到 Azure。"}
+{"id":"002","audio":"audio/002.wav","reference":"不是 Claude，是 Claude Code，路径是 /home/litong。","mandarin":true,"technicalTerms":["Claude Code"],"expectedOrganized":"不是 Claude，是 Claude Code。路径是 /home/litong。"}

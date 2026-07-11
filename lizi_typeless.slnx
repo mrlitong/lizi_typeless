@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/lizi_typeless.Core/lizi_typeless.Core.csproj" />
+    <Project Path="src/lizi_typeless.Windows/lizi_typeless.Windows.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/lizi_typeless.Core.Tests/lizi_typeless.Core.Tests.csproj" />
+    <Project Path="tests/lizi_typeless.Windows.Tests/lizi_typeless.Windows.Tests.csproj" />
+  </Folder>
+</Solution>

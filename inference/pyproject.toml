@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=80", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lizi_typeless_inference"
+version = "0.1.0"
+description = "Local ASR and faithful text organization service for lizi_typeless"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+  "fastapi==0.139.0",
+  "modelscope>=1.33,<2",
+  "numpy>=1.26,<3",
+  "python-multipart>=0.0.22,<1",
+  "qwen-asr==0.0.6",
+  "soxr>=1.0,<2",
+  "torch>=2.9.1,<2.14",
+  "uvicorn[standard]>=0.41,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.28,<1",
+  "pytest>=9,<10",
+  "pytest-cov>=7,<8",
+  "ruff>=0.14,<1",
+  "soundfile>=0.13,<1",
+  "websockets>=16,<17",
+]
+
+[project.scripts]
+lizi_typeless_inference = "lizi_typeless_inference.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

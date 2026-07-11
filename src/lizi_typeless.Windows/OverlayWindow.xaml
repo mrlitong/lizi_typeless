@@ -1,0 +1,64 @@
+<Window x:Class="lizi_typeless.Windows.OverlayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Width="500"
+        SizeToContent="Height"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        ShowActivated="False"
+        ShowInTaskbar="False"
+        Topmost="True"
+        Focusable="False"
+        IsHitTestVisible="False">
+    <Border Margin="12"
+            Padding="18,15"
+            Background="#F217242B"
+            BorderBrush="#3FFFFFFF"
+            BorderThickness="1"
+            CornerRadius="18">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="24" Opacity="0.28" ShadowDepth="6" />
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse x:Name="StatusDot" Width="10" Height="10" Fill="#F45B3A" />
+                <TextBlock x:Name="StatusText"
+                           Grid.Column="2"
+                           Foreground="White"
+                           FontFamily="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontWeight="SemiBold"
+                           Text="正在录音" />
+                <TextBlock x:Name="DurationText"
+                           Grid.Column="3"
+                           Foreground="#AFC3C8"
+                           FontFamily="Bahnschrift"
+                           FontSize="14"
+                           Text="00:00" />
+            </Grid>
+            <TextBlock x:Name="PreviewText"
+                       Grid.Row="1"
+                       Margin="20,10,0,0"
+                       MaxHeight="72"
+                       Foreground="#DDE8E9"
+                       FontFamily="Microsoft YaHei UI"
+                       FontSize="14"
+                       LineHeight="22"
+                       Text="请开始说话…"
+                       TextTrimming="CharacterEllipsis"
+                       TextWrapping="Wrap" />
+        </Grid>
+    </Border>
+</Window>
