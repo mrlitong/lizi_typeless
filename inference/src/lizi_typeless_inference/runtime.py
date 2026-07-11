@@ -13,6 +13,7 @@ from .config import Settings
 from .prompt import (
     ORGANIZER_EXAMPLES,
     ORGANIZER_SYSTEM_PROMPT,
+    choose_faithful_output,
     collapse_whole_text_repetition,
 )
 from .vocabulary import correct_personal_vocabulary
@@ -114,7 +115,7 @@ class QwenOrganizer:
         response_tokens = generated[0][model_inputs.input_ids.shape[1] :]
         organized = self._tokenizer.decode(response_tokens, skip_special_tokens=True).strip()
         return Organization(
-            text=organized,
+            text=choose_faithful_output(text, organized),
             duration_milliseconds=(perf_counter() - started_at) * 1000,
         )
 
