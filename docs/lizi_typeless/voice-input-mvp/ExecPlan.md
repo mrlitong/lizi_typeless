@@ -142,7 +142,7 @@
 ### 当前环境
 
 1. 工作目录：`/home/litong/lizi_typeless`。
-2. Git：`main` 跟踪 `origin/main`，首次实现基线为 `68029f1`，远端为 `https://github.com/mrlitong/lizi_typeless.git`；精确 HEAD 与工作树必须用 Git 现场确认。
+2. Git：`main` 跟踪 `origin/main`，首次实现基线为 `68029f1`，个人 MVP 忠实度修复与验收收口提交为 `1d7f6ed`，远端为 `https://github.com/mrlitong/lizi_typeless.git`；精确 HEAD 与工作树必须用 Git 现场确认。
 3. 指令：`~/.codex/AGENTS.md` 存在，仓库内当前没有 `AGENTS.md`。
 4. Windows：Windows 11，.NET SDK 10.0.301；客户端发布为 `%LOCALAPPDATA%\lizi_typeless\app\lizi_typeless.exe`。
 5. WSL2：Ubuntu 24.04，Python 3.12；推理服务监听 `127.0.0.1:8765`。
@@ -310,7 +310,7 @@ curl --fail http://127.0.0.1:8765/v1/health
 8. 修复前后 20 条完整质量报告：`artifacts/voice-benchmark-mvp-20.json` 与 `artifacts/voice-benchmark-mvp-20-fixed.json`，均被 Git 忽略。
 9. Windows 活动数据目录当前保留 27 条会话：23 条 `completed`、3 条 `ready` 和 1 条已保存原始录音、可 Retry 的 `failed`；改名前目录保留迁移时 11 条会话的同哈希回退副本，均不得由开发流程删除。
 10. 改名验证时间点为 2026-07-11 11:45 CST；客户端进程和服务健康是易变事实，后续会话必须重新检查。
-11. GitHub 仓库：`https://github.com/mrlitong/lizi_typeless.git`；根提交 `68029f1` 包含 69 个源码、测试、脚本、配置和文档文件，未包含任何 `.gitignore` 排除资产。
+11. GitHub 仓库：`https://github.com/mrlitong/lizi_typeless.git`；根提交 `68029f1` 包含首次实现，提交 `1d7f6ed` 包含个人 MVP 忠实度保护、回归测试和验收收口；模型、个人数据、报告、日志和构建产物均未进入提交。
 
 ## 接口与依赖（Interfaces and Dependencies）
 
