@@ -1,8 +1,8 @@
 # 语音输入 MVP ExecPlan
 
-> 状态：执行中（完整改名完成，首次 GitHub 发布收口中）
+> 状态：执行中（完整改名与首次 GitHub 发布已完成，继续验收）
 > 风险等级：中风险
-> 更新日期：2026-07-11 11:45 CST（Asia/Shanghai）
+> 更新日期：2026-07-11 11:56 CST（Asia/Shanghai）
 
 ## 目的与大图景（Purpose / Big Picture）
 
@@ -33,7 +33,7 @@
 13. [x] 已把仓库目录、解决方案、.NET 项目与命名空间、Python 包与环境变量、Windows UI、文档、发布目录和活动数据目录统一改名为 `lizi_typeless`。
 14. [x] 已删除用户确认的 1 条误触失败会话，并把其余 11 条有效会话复制到新目录；33 个会话文件逐一通过 SHA-256 对比，旧目录保留。
 15. [x] 已重新安装两套 editable Python 包、完成 .NET/Python/Ruff 门禁、发布并启动 `lizi_typeless.exe`，健康接口确认流式模型服务就绪。
-16. [ ] 将应提交文件发布到 `https://github.com/mrlitong/lizi_typeless.git` 的 `main`，并确认模型、环境、个人数据、报告、日志和构建产物不在提交中。
+16. [x] 已用根提交 `68029f1` 将 69 个应提交文件发布到 `https://github.com/mrlitong/lizi_typeless.git` 的 `main`；模型、环境、个人数据、报告、日志和构建产物均未进入提交。
 
 ## 意外发现与踩坑（Surprises & Discoveries）
 
@@ -136,7 +136,7 @@
 ### 当前环境
 
 1. 工作目录：`/home/litong/lizi_typeless`。
-2. Git：`main`，首次发布目标为 `https://github.com/mrlitong/lizi_typeless.git`；精确 HEAD 与工作树必须用 Git 现场确认。
+2. Git：`main` 跟踪 `origin/main`，首次实现基线为 `68029f1`，远端为 `https://github.com/mrlitong/lizi_typeless.git`；精确 HEAD 与工作树必须用 Git 现场确认。
 3. 指令：`~/.codex/AGENTS.md` 存在，仓库内当前没有 `AGENTS.md`。
 4. Windows：Windows 11，.NET SDK 10.0.301；客户端发布为 `%LOCALAPPDATA%\lizi_typeless\app\lizi_typeless.exe`。
 5. WSL2：Ubuntu 24.04，Python 3.12；推理服务监听 `127.0.0.1:8765`。
@@ -160,6 +160,7 @@
 2. `.gitignore` 必须继续排除 `.venv*`、`models/`、`data/`、`artifacts/`、`inference/logs/`、Python 缓存与所有 `bin/obj`。
 3. 提交前必须同时检查 `git status --short --ignored`、`git diff --cached --stat` 和 `git diff --cached --name-only`，发现本机资产时停止提交。
 4. 不运行 `git clean`、`git reset --hard` 或会删除用户录音、模型、报告和环境的清理命令。
+5. 根提交 `68029f1` 是首个可比较代码基线；后续变更必须使用正常 Git diff，不再依赖文件时间或聊天记录判断修改范围。
 
 ### 必须遵守的约束
 
@@ -182,10 +183,9 @@
 
 ### 剩余收口
 
-1. 完成 GitHub 首次提交与 `main` 推送，并确认忽略资产没有进入仓库。
-2. 再采集 40 条个人语音，加入 `lizi_typeless` 真实口述，运行质量报告并人工审核整理忠实度。
-3. 再积累 21 条有效短录音和 30 条长录音，从 Windows 会话元数据汇总 P50/P95，确认或优化长文本整理。
-4. 完成故障注入和兼容矩阵验收，并在数日真实使用中观察风扇主观表现。
+1. 再采集 40 条个人语音，加入 `lizi_typeless` 真实口述，运行质量报告并人工审核整理忠实度。
+2. 再积累 21 条有效短录音和 30 条长录音，从 Windows 会话元数据汇总 P50/P95，确认或优化长文本整理。
+3. 完成故障注入和兼容矩阵验收，并在数日真实使用中观察风扇主观表现。
 
 ## 具体步骤（Concrete Steps）
 
@@ -291,7 +291,7 @@ curl --fail http://127.0.0.1:8765/v1/health
 7. 当前部分时延报告：`artifacts/session-timings-batch-01.json`，明确标记 `partialReport: true`，被 Git 忽略。
 8. Windows 活动数据目录保留 1 条已 Retry 为 `ready` 的首条个人会话和 10 条 `completed` 会话；改名前目录保留相同哈希的回退副本，均不得由开发流程删除。
 9. 改名验证时间点为 2026-07-11 11:45 CST；客户端进程和服务健康是易变事实，后续会话必须重新检查。
-10. GitHub 目标仓库：`https://github.com/mrlitong/lizi_typeless.git`；首次提交只包含未被 `.gitignore` 排除的项目文件。
+10. GitHub 仓库：`https://github.com/mrlitong/lizi_typeless.git`；根提交 `68029f1` 包含 69 个源码、测试、脚本、配置和文档文件，未包含任何 `.gitignore` 排除资产。
 
 ## 接口与依赖（Interfaces and Dependencies）
 
